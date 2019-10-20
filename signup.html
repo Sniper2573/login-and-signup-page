@@ -1,0 +1,59 @@
+<html lang="en-US">
+  <head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <title>SignUp</title>
+    <link rel="stylesheet" href="C:\Users\rames\Desktop\Project/style.css" media="screen" type="text/css" />
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400,700">
+
+  </head>
+  <body>
+    <div class="ex3">
+      <h1 align="center">Sign Up</h1>
+    </div>
+    <div class="container">
+         <div class="ex1"></div>
+      <div id="login">
+        <form action="/signup" method="post">
+          <fieldset class="clearfix">
+            <p><span class="fontawesome-user"></span><input id="username" name="username" type="text" placeholder="Username" required></p>
+            <p><span class="fontawesome-user"></span><input id="email" name="email" type="email" placeholder="Email" required></p>
+            <p><span class="fontawesome-lock"></span><input  id="password" name = "password" type="password"  placeholder="Password"  required></p>
+            <p><span class="fontawesome-lock"></span><input id="confirmPassword" type="password"  placeholder="Confirm - Password" required></p>
+            <p><input type="submit"  value="Sign Up" /></button></p>
+          </fieldset>
+        </form>
+        <p>Already have account ? <a href="C:\Users\rames\Desktop\Project/login.html">Login now</a><span class="fontawesome-arrow-right"></span></p>
+      </div>
+    </div>
+  </body>
+<script>
+  var res=0;
+var password = document.getElementById("password")
+  var confirm_password = document.getElementById("confirmPassword");
+
+function validatePassword(){
+  var str = 
+                document.getElementById("password").value;
+                var reg = /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{7,15}$/; 
+                if(str.match(reg))
+                {
+                  res=1;
+                }
+   console.log(password.value);
+   if(password.value.length<8)
+  password.setCustomValidity('Password length too short !');
+  else if(res==0)
+  password.setCustomValidity('special character or uppercase character missing!');
+ else if(password.value != confirm_password.value) {
+    confirm_password.setCustomValidity("Passwords Don't Match");
+  } else {
+    confirm_password.setCustomValidity('');
+  }
+}
+
+password.onchange = validatePassword;
+confirm_password.onkeyup = validatePassword;
+</script>
+
+</html>
